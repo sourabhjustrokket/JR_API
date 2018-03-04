@@ -1,0 +1,11 @@
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\bin\Release\netcoreapp2.0\JR_API.deps.json
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\bin\Release\netcoreapp2.0\JR_API.runtimeconfig.json
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\bin\Release\netcoreapp2.0\JR_API.runtimeconfig.dev.json
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\bin\Release\netcoreapp2.0\JR_API.dll
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\bin\Release\netcoreapp2.0\JR_API.pdb
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\obj\Release\netcoreapp2.0\JR_API.csprojResolveAssemblyReference.cache
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\obj\Release\netcoreapp2.0\JR_API.csproj.CoreCompileInputs.cache
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\obj\Release\netcoreapp2.0\JR_API.AssemblyInfoInputs.cache
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\obj\Release\netcoreapp2.0\JR_API.AssemblyInfo.cs
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\obj\Release\netcoreapp2.0\JR_API.dll
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_API\JR_API\obj\Release\netcoreapp2.0\JR_API.pdb
