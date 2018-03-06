@@ -8,7 +8,7 @@ namespace JR_API.Dtos
     public class TagRelationDto
     {
         public int Id { get; set; }
-        public int FamilyTagId { get; set; }
-        public List<TagDto> MembersTagId { get; set; }
+        public TagDto FamilyTag { get; set; }
+        public List<TagDto> FamilyTagMembers { get; set; }
     }
 }

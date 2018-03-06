@@ -15,6 +15,7 @@ namespace JR_API.Services
         Tag Create(Tag tag);
         void Update(Tag tag);
         void Delete(int id);
+        void CreateTagRelation(List<TagRelationship> tagRelationship); 
     }
     public class TagService : ITagService
     {
@@ -34,6 +35,18 @@ namespace JR_API.Services
             _context.Tags.Add(tag);
             _context.SaveChanges();
             return tag;
+        }
+
+        public void CreateTagRelation(List<TagRelationship> lstTagRelationship)
+        {
+            foreach (var tagRelationship in lstTagRelationship)
+            {
+                if (_context.TagRelations.Where(x => x.TagFamilyId == tagRelationship.TagFamilyId && x.TagFamilyMemberId == tagRelationship.TagFamilyMemberId).Count() == 0)
+                {
+                    _context.TagRelations.Add(tagRelationship);
+                }
+            }
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
