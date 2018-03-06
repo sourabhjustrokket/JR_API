@@ -11,9 +11,10 @@ using System;
 namespace JR_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180306010223_TagRelationShip")]
+    partial class TagRelationShip
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,30 +39,6 @@ namespace JR_API.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("JR_API.Entities.TagRelationship", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<DateTime>("ModifiedDate");
-
-                    b.Property<int>("TagFamilyId");
-
-                    b.Property<int>("TagFamilyMemberId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TagFamilyId");
-
-                    b.HasIndex("TagFamilyMemberId");
-
-                    b.ToTable("TagRelations");
-                });
-
             modelBuilder.Entity("JR_API.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -81,19 +58,6 @@ namespace JR_API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("JR_API.Entities.TagRelationship", b =>
-                {
-                    b.HasOne("JR_API.Entities.Tag", "TagFamily")
-                        .WithMany()
-                        .HasForeignKey("TagFamilyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("JR_API.Entities.Tag", "TagFamilyMember")
-                        .WithMany()
-                        .HasForeignKey("TagFamilyMemberId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

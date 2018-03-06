@@ -9,5 +9,6 @@ namespace JR_API.Helpers
 
         public DbSet<User> Users { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<TagRelationship> TagRelations { get; set; }
     }
 }
