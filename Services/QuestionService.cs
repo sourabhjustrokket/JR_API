@@ -56,6 +56,8 @@ namespace JR_API.Services
 
         public Question SubmitQuestion(Question question)
         {
+            question.IsActive = question.IsApproved = false;
+            question.ModifiedDate = question.CreatedDate = DateTime.Now;
             _context.Questions.Add(question);
             _context.SaveChanges();
             return question;
