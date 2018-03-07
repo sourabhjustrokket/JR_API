@@ -13,11 +13,11 @@ namespace JR_API.Entities
         public string Detail { get; set; }
         public bool IsActive { get; set; }
         public bool IsApproved { get; set; }
-        public List<Tag> tags { get; set; }
         [ForeignKey("user")]
         public int UserId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
-        public User user { get; set; }
+        public virtual User user { get; set; }
+        public virtual List<Tag> tags { get; set; }
     }
 }
