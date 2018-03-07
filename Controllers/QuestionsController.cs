@@ -84,4 +84,4 @@ namespace JR_API.Controllers
             return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
         }
     }
-}
+}   

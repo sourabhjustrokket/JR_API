@@ -69,6 +69,7 @@ namespace JR_API.Controllers
         [AllowAnonymous]
         public IActionResult SearchSecondaryTag(string searchTag)
         {
+            if (string.IsNullOrEmpty(searchTag)) { return Ok(_TagService.SearchSecondaryTag()); }
             return Ok(_TagService.SearchSecondaryTag(searchTag));
         }
     }
