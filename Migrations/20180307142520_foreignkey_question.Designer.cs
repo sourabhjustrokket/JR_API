@@ -11,9 +11,10 @@ using System;
 namespace JR_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180307142520_foreignkey_question")]
+    partial class foreignkey_question
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,11 +38,11 @@ namespace JR_API.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int>("UserId");
+                    b.Property<int?>("userId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("Questions");
                 });
@@ -139,8 +140,7 @@ namespace JR_API.Migrations
                 {
                     b.HasOne("JR_API.Entities.User", "user")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("userId");
                 });
 
             modelBuilder.Entity("JR_API.Entities.QuestionTag", b =>

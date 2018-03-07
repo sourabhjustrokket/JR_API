@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,6 +14,8 @@ namespace JR_API.Entities
         public bool IsActive { get; set; }
         public bool IsApproved { get; set; }
         public List<Tag> tags { get; set; }
+        [ForeignKey("user")]
+        public int UserId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         public User user { get; set; }
