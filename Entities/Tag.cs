@@ -14,5 +14,6 @@ namespace JR_API.Entities
         public bool IsActive { get; set; }
         //public ICollection<TagRelationship> RelatedToFamily { get; set; }
         //public ICollection<TagRelationship> RelatedToMembers { get; set; }
+        public string TagSymbol { get; set; }
     }
 }

@@ -11,60 +11,15 @@ using System;
 namespace JR_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180306192154_TagSymbol_Added")]
+    partial class TagSymbol_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("JR_API.Entities.Question", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<string>("Detail");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<bool>("IsApproved");
-
-                    b.Property<DateTime>("ModifiedDate");
-
-                    b.Property<string>("Title");
-
-                    b.Property<int?>("userId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("userId");
-
-                    b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("JR_API.Entities.QuestionTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<int>("QuestionId");
-
-                    b.Property<int>("TagId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("QuestionTags");
-                });
 
             modelBuilder.Entity("JR_API.Entities.Tag", b =>
                 {
@@ -77,15 +32,11 @@ namespace JR_API.Migrations
 
                     b.Property<DateTime>("ModifiedDate");
 
-                    b.Property<int?>("QuestionId");
-
                     b.Property<string>("TagName");
 
                     b.Property<string>("TagSymbol");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
 
                     b.ToTable("Tags");
                 });
@@ -133,33 +84,6 @@ namespace JR_API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("JR_API.Entities.Question", b =>
-                {
-                    b.HasOne("JR_API.Entities.User", "user")
-                        .WithMany()
-                        .HasForeignKey("userId");
-                });
-
-            modelBuilder.Entity("JR_API.Entities.QuestionTag", b =>
-                {
-                    b.HasOne("JR_API.Entities.Question", "question")
-                        .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("JR_API.Entities.Tag", "tag")
-                        .WithMany()
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("JR_API.Entities.Tag", b =>
-                {
-                    b.HasOne("JR_API.Entities.Question")
-                        .WithMany("tags")
-                        .HasForeignKey("QuestionId");
                 });
 
             modelBuilder.Entity("JR_API.Entities.TagRelationship", b =>

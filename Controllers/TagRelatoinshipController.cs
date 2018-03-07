@@ -54,14 +54,13 @@ namespace JR_API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public IActionResult GetAll()
-        //{
-        //    var tags = _TagService.GetAll();
-        //    var tagDtos = _mapper.Map<IList<TagDto>>(tags);
-        //    return Ok(tagDtos);
-        //}
+        [HttpGet("GetPrimaryTags")]
+        [AllowAnonymous]
+        public IActionResult GetPrimaryTags()
+        {
+            var lstTags = _TagService.GetPrimaryTags();
+            return Ok(lstTags);
+        }
         //[HttpGet("{id}")]
         //[AllowAnonymous]
         //public IActionResult GetById(int id)

@@ -15,7 +15,8 @@ namespace JR_API.Services
         Tag Create(Tag tag);
         void Update(Tag tag);
         void Delete(int id);
-        void CreateTagRelation(List<TagRelationship> tagRelationship); 
+        void CreateTagRelation(List<TagRelationship> tagRelationship);
+        List<Tag> GetPrimaryTags();
     }
     public class TagService : ITagService
     {
@@ -77,6 +78,10 @@ namespace JR_API.Services
         public void Update(Tag tag)
         {
             throw new NotImplementedException();
+        }
+        public List<Tag> GetPrimaryTags()
+        {
+            return _context.Tags.Where(x => !(_context.TagRelations.Select(y => y.TagFamilyMemberId).ToArray()).Contains(x.Id)).ToList();
         }
     }
 }

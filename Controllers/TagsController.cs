@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using JR_API.Dtos;
 using JR_API.Entities;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,6 +39,7 @@ namespace JR_API.Controllers
             try
             {
                 // save 
+                tag.TagSymbol="#"+ Regex.Replace(tagDto.TagName, @"[^0-9a-zA-Z]+", "");
                 _TagService.Create(tag);
                 return Ok();
             }
