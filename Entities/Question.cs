@@ -17,6 +17,7 @@ namespace JR_API.Entities
         public int UserId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
+        public string tagIds { get; set; }
         public virtual User user { get; set; }
         public virtual List<Tag> tags { get; set; }
     }

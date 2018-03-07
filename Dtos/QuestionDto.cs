@@ -12,6 +12,7 @@ namespace JR_API.Dtos
         public string Detail { get; set; }
         public bool IsActive { get; set; }
         public bool IsApproved { get; set; }
+        public string tagIds { get; set; }
         public List<TagDto> tags { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
