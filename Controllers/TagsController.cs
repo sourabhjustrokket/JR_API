@@ -65,5 +65,11 @@ namespace JR_API.Controllers
             var tagDto = _mapper.Map<TagDto>(tag);
             return Ok(tagDto);
         }
+        [HttpGet("SearchSecondaryTag")]
+        [AllowAnonymous]
+        public IActionResult SearchSecondaryTag(string searchTag)
+        {
+            return Ok(_TagService.SearchSecondaryTag(searchTag));
+        }
     }
 }

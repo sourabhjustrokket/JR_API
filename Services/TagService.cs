@@ -17,6 +17,7 @@ namespace JR_API.Services
         void Delete(int id);
         void CreateTagRelation(List<TagRelationship> tagRelationship);
         List<Tag> GetPrimaryTags();
+        List<Tag> SearchSecondaryTag(string searchTag);
     }
     public class TagService : ITagService
     {
@@ -81,7 +82,13 @@ namespace JR_API.Services
         }
         public List<Tag> GetPrimaryTags()
         {
-            return _context.Tags.Where(x => !(_context.TagRelations.Select(y => y.TagFamilyMemberId).ToArray()).Contains(x.Id)).ToList();
+            int[] lstArr = _context.TagRelations.Select(x => x.TagFamilyMemberId).Distinct().ToArray();
+            return _context.Tags.Where(x => !lstArr.Contains(x.Id)).ToList();
+        }
+        public List<Tag> SearchSecondaryTag(string searchTag)
+        {
+            int[] lstArr=_context.TagRelations.Select(x => x.TagFamilyMemberId).Distinct().ToArray();
+            return _context.Tags.Where(x => lstArr.Contains(x.Id) && x.TagName.StartsWith(searchTag)).ToList();
         }
     }
 }
