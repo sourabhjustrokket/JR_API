@@ -11,6 +11,7 @@ namespace JR_API.Services
     public interface IQuestionService
     {
         IEnumerable<Question> GetQuestions();
+        IEnumerable<Question> GetQuestionsForAdmin(bool IsApproved, bool IsActive);
         Question GetQuestion(int id);
         Question EditQuestion(int id, Question question);
         Question SubmitQuestion(Question question);
@@ -51,7 +52,24 @@ namespace JR_API.Services
 
         public IEnumerable<Question> GetQuestions()
         {
-            return _context.Questions;
+            List<Question> lstQuestions = _context.Questions.Where(x => x.IsApproved == true && x.IsActive == true).ToList();
+            foreach (Question item in lstQuestions)
+            {
+                try
+                {
+                    var itemArr = item.tagIds.Split(",").Select(Int32.Parse).ToList();
+                    for (int i = 0; i < itemArr.Count; i++)
+                    {
+                        item.tags.Add(_context.Tags.Where(x => x.Id == itemArr[i]).FirstOrDefault());
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+            return lstQuestions;
         }
 
         public Question SubmitQuestion(Question question)
@@ -65,6 +83,29 @@ namespace JR_API.Services
         public bool QuestionExists(int id)
         {
             return _context.Questions.Any(e => e.Id == id);
+        }
+
+        public IEnumerable<Question> GetQuestionsForAdmin(bool IsApproved, bool IsActive)
+        {
+            List<Question> lstQuestions = _context.Questions.Include(x=>x.tags).Where(x => x.IsApproved == IsApproved && x.IsActive == IsActive).ToList();
+
+            foreach (Question item in lstQuestions)
+            {
+                try
+                {
+                    var itemArr=item.tagIds.Split(",").Select(Int32.Parse).ToList();
+                    for (int i= 0; i< itemArr.Count; i++)
+                    {
+                        item.tags.Add(_context.Tags.Where(x => x.Id == itemArr[i]).FirstOrDefault());
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+            return lstQuestions;
         }
     }
 }

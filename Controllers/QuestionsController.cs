@@ -84,5 +84,10 @@ namespace JR_API.Controllers
 
             return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
         }
+        [HttpGet("/admin/GetQuestions")]
+        public IEnumerable<Question> GetQuestionsForAdmin(bool IsApproved=false, bool IsActive=true)
+        {
+            return _questionService.GetQuestionsForAdmin(IsApproved, IsActive);
+        }
     }
 }   
