@@ -13309,11 +13309,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\sourabhsomani\\documents\\visual studio 2017\\Projects\\JR_API\\JR_API\\JR_API.csproj",
+      "projectUniqueName": "C:\\Users\\sourabhsomani\\Documents\\Visual Studio 2017\\Projects\\JR_API\\JR_API\\JR_API.csproj",
       "projectName": "JR_API",
-      "projectPath": "C:\\Users\\sourabhsomani\\documents\\visual studio 2017\\Projects\\JR_API\\JR_API\\JR_API.csproj",
+      "projectPath": "C:\\Users\\sourabhsomani\\Documents\\Visual Studio 2017\\Projects\\JR_API\\JR_API\\JR_API.csproj",
       "packagesPath": "C:\\Users\\sourabhsomani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sourabhsomani\\documents\\visual studio 2017\\Projects\\JR_API\\JR_API\\obj\\",
+      "outputPath": "C:\\Users\\sourabhsomani\\Documents\\Visual Studio 2017\\Projects\\JR_API\\JR_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

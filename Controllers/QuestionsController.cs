@@ -9,6 +9,7 @@ using JR_API.Entities;
 using JR_API.Helpers;
 using JR_API.Services;
 using AutoMapper;
+using System.Security.Claims;
 
 namespace JR_API.Controllers
 {
@@ -78,8 +79,8 @@ namespace JR_API.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            question=_questionService.SubmitQuestion(question);
+            question.UserId = Convert.ToInt32(HttpContext.User.FindFirst(ClaimTypes.Name).Value);
+            question =_questionService.SubmitQuestion(question);
 
             return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
         }
